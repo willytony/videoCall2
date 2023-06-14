@@ -2,14 +2,15 @@
 
 //Loading dependencies & initializing express
 var os = require("os");
+const path = require("path");
 var express = require("express");
 var app = express();
 var http = require("http");
 //For signalling in WebRTC
 var socketIO = require("socket.io");
 
-app.use(express.static("public"));
-// app.use("/", express.static(path.join(__dirname, "public")));
+// app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", function (req, res) {
   res.render("index.ejs");
@@ -19,7 +20,6 @@ var server = http.createServer(app);
 
 server.listen(process.env.PORT || 8000);
 var users = {};
-var clientsInRoom;
 var sockets = {};
 var strangerQ = false;
 
