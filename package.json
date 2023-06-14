@@ -86,7 +86,7 @@
     "ws": "^8.11.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
