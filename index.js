@@ -1,13 +1,14 @@
 "use strict";
 
 //Loading dependencies & initializing express
+const express = require("express");
 var os = require("os");
 const path = require("path");
-var express = require("express");
-var app = express();
-var http = require("http");
+
+const app = express();
+const http = require("http");
 //For signalling in WebRTC
-var socketIO = require("socket.io");
+const socketIO = require("socket.io");
 
 // app.use(express.static("public"));
 // app.get("/", function (req, res) {
@@ -17,8 +18,8 @@ var socketIO = require("socket.io");
 app.use("/", express.static(path.join(__dirname, "static")));
 
 var server = http.createServer(app);
-
-server.listen(process.env.PORT || 8000);
+let port = process.env.PORT || 5000;
+server.listen(port);
 var users = {};
 var sockets = {};
 var strangerQ = false;
