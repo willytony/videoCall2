@@ -10,11 +10,11 @@ var http = require("http");
 var socketIO = require("socket.io");
 
 // app.use(express.static("public"));
-app.use(express.static(path.join(__dirname, "public")));
+// app.get("/", function (req, res) {
+//   res.render("index.ejs");
+// });
 
-app.get("/", function (req, res) {
-  res.render("index.ejs");
-});
+app.use("/", express.static(path.join(__dirname, "static")));
 
 var server = http.createServer(app);
 
